@@ -1,5 +1,6 @@
 import ECommerce from "@/components/Dashboard/E-commerce";
 import { Metadata } from "next";
+import InventoryPage from "./inventory/page";
 
 export const metadata: Metadata = {
   title: "TailAdmin | Next.js E-commerce Dashboard Template",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <ECommerce />
+      <InventoryPage />
     </>
   );
 }

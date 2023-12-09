@@ -7,11 +7,13 @@ interface ModalProps {
   closeModal: () => void;
   onSubmit: (data: any) => void;
   defaultValue?: any;
+  // setFormState?: any;
 }
 export const Modal: React.FC<ModalProps> = ({
   closeModal,
   onSubmit,
   defaultValue,
+  // setFormState,
 }) => {
   const [formState, setFormState] = useState(
     defaultValue || {
