@@ -65,8 +65,10 @@ npm run dev
 ## Panduan Fitur - Supplier
 **Name**
 >Nama dari supplier
+
 **Location**
 >Lokasi dari supplier berasal
+
 **Phone Number**
 >Nomor telepon dari supplier
 
