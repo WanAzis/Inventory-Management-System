@@ -1,51 +1,38 @@
 "use client";
 import { useState, useEffect } from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import { Modal } from "@/components/Modal/Modal";
-import TableOne from "@/components/Tables/TableOne";
-import TableThree from "@/components/Tables/TableInventory";
-import TableTwo from "@/components/Tables/TableTwo";
+import { Modal } from "@/components/Modal/ModalSupplier";
 import supabase from "@/supabase";
-
-import { Metadata } from "next";
 import TableSupplier from "@/components/Tables/TableSupplier";
-export const metadata: Metadata = {
-  title: "Tables Page | Next.js E-commerce Dashboard Template",
-  description: "This is Tables page for TailAdmin Next.js",
-  // other metadata
-};
 
 interface FormState {
   name: string;
   location: string;
-  quantity: number;
-  minQuantity: number;
-  status: string;
-  expDate: Date;
+  phone_number: string;
 }
 
 const TablesPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = () => setModalOpen(true);
-  const [inventoryData, setInventoryData] = useState<any[]>([]);
+  const [supplierData, setSupplierData] = useState<any[]>([]);
   // const supabase = createClientComponentClient();
 
   useEffect(() => {
-    const fetchInventoryData = async () => {
+    const fetchSupplierData = async () => {
       try {
-        const { data, error } = await supabase.from("Inventory").select("*");
+        const { data, error } = await supabase.from("Supplier").select("*");
 
         if (error) {
           throw error;
         }
 
-        setInventoryData(data);
+        setSupplierData(data);
       } catch (error) {
-        console.error("Error fetching inventory data:", error.message);
+        console.error("Error fetching Supplier data:", error.message);
       }
     };
 
-    fetchInventoryData();
+    fetchSupplierData();
   }, []);
 
   
@@ -55,11 +42,11 @@ const TablesPage = () => {
     // setRows(rows.filter((_, idx) => idx !== targetIndex));
     try {
       // Mendapatkan ID item yang ingin dihapus dari state atau data yang tersimpan
-      const itemIdToDelete = inventoryData[key].name; // Gantilah dengan properti ID yang sesuai
+      const itemIdToDelete = supplierData[key].name; // Gantilah dengan properti ID yang sesuai
 
       // Menghapus item dari basis data menggunakan Supabase
       const { data, error } = await supabase
-        .from("Inventory")
+        .from("Supplier")
         .delete()
         .eq("name", itemIdToDelete);
 
@@ -67,7 +54,7 @@ const TablesPage = () => {
       if (error) {
         throw error;
       } else {
-        setInventoryData((prevData) =>
+        setSupplierData((prevData) =>
           prevData.filter((item) => item.name !== itemIdToDelete)
         );
       }
@@ -102,21 +89,15 @@ const TablesPage = () => {
       {
         name: formState.name,
         location: formState.location,
-        quantity: formState.quantity,
-        minQuantity: formState.minQuantity,
-        status: formState.status,
-        expDate: formState.expDate,
+        phone_number: formState.phone_number,
       },
     ]);
     try {
-      const { data, error } = await supabase.from("Inventory").insert([
+      const { data, error } = await supabase.from("Supplier").insert([
         {
           name: formState.name,
           location: formState.location,
-          quantity: formState.quantity,
-          minQuantity: formState.minQuantity,
-          status: formState.status,
-          expDate: formState.expDate,
+          phone_number: formState.phone_number,
         },
         // { onConflict: ["name"] }
       ]);
@@ -125,9 +106,9 @@ const TablesPage = () => {
       }
 
       // Tambahkan newItem ke state lokal untuk pembaruan tampilan
-      setInventoryData([...inventoryData, formState]);
+      setSupplierData([...supplierData, formState]);
     } catch (error) {
-      console.error("Error adding item to inventory:", error.message);
+      console.error("Error adding item to supplier:", error.message);
     }
     // const { data, error } = await supabase.from("Inventory").select("*");
   };
@@ -138,7 +119,7 @@ const TablesPage = () => {
 
       <div className="flex flex-col gap-10">
         <TableSupplier
-          rows={inventoryData}
+          rows={supplierData}
           deleteRow={handleDeleteRow}
           editRow={handleEditRow}
           openModal={openModal}
@@ -150,7 +131,7 @@ const TablesPage = () => {
               setRowToEdit(null);
             }}
             onSubmit={handleSubmit}
-            defaultValue={rowToEdit !== null && inventoryData[rowToEdit]}
+            defaultValue={rowToEdit !== null && supplierData[rowToEdit]}
           />
         )}
       </div>

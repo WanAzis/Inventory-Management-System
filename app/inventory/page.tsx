@@ -1,18 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import { Modal } from "@/components/Modal/Modal";
+import { Modal } from "@/components/Modal/ModalInventory";
 import TableOne from "@/components/Tables/TableOne";
 import TableThree from "@/components/Tables/TableInventory";
 import TableTwo from "@/components/Tables/TableTwo";
 import supabase from "@/supabase";
 
 import { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Tables Page | Next.js E-commerce Dashboard Template",
-  description: "This is Tables page for TailAdmin Next.js",
-  // other metadata
-};
 
 interface FormState {
   name: string;
