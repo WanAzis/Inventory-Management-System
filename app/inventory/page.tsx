@@ -19,20 +19,20 @@ const InventoryPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = () => setModalOpen(true);
   const [inventoryData, setInventoryData] = useState<any[]>([]);
-  const [rowToEdit, setRowToEdit] = useState<any[]>([]);
+  const [rowToEdit, setRowToEdit] = useState(null);
   // const supabase = createClientComponentClient();
 
   useEffect(() => {
     const fetchInventoryData = async () => {
       try {
-        const { data, error } = await supabase.from("Inventory").select("*");
+        const { data, error}: { data: any, error: any } = await supabase.from("Inventory").select("*");
 
         if (error) {
           throw error;
         }
 
         setInventoryData(data);
-      } catch (error) {
+      } catch (error:any) {
         console.error("Error fetching inventory data:", error.message);
       }
     };
@@ -40,7 +40,7 @@ const InventoryPage = () => {
     fetchInventoryData();
   }, []);
 
-  const handleDeleteRow = async (key) => {
+  const handleDeleteRow = async (key:any) => {
     try {
       // Mendapatkan ID item yang ingin dihapus dari state atau data yang tersimpan
       const itemIdToDelete = inventoryData[key].name;
@@ -62,12 +62,12 @@ const InventoryPage = () => {
 
       // Jika berhasil, perbarui state atau data yang digunakan untuk menampilkan tabel
       // setInventoryData([...inventoryData, data]);
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error deleting item:", error.message);
     }
   };
 
-  const handleEditRow = async (key) => {
+  const handleEditRow = async (key:any) => {
 
     setRowToEdit(key);
     setModalOpen(true);
@@ -119,7 +119,7 @@ const InventoryPage = () => {
         // Tambahkan newItem ke state lokal untuk pembaruan tampilan
         setInventoryData([...inventoryData, formState]);
       }
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error adding item to inventory:", error.message);
     }
     setRowToEdit(null);

@@ -34,7 +34,7 @@ const OrderPage = () => {
         }
 
         setOrderData(data);
-      } catch (error) {
+      } catch (error:any) {
         console.error("Error fetching order data:", error.message);
       }
     };
@@ -42,7 +42,7 @@ const OrderPage = () => {
     fetchOrderData();
   }, []);
 
-  const handleDeleteRow = async (key) => {
+  const handleDeleteRow = async (key:any) => {
     // setRows(rows.filter((_, idx) => idx !== targetIndex));
     try {
       // Mendapatkan ID item yang ingin dihapus dari state atau data yang tersimpan
@@ -65,12 +65,12 @@ const OrderPage = () => {
 
       // Jika berhasil, perbarui state atau data yang digunakan untuk menampilkan tabel
       // setOrderData([...OrderData, data]);
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error deleting item:", error.message);
     }
   };
 
-  const handleEditRow = async (key) => {
+  const handleEditRow = async (key:any) => {
     setRowToEdit(key);
     setModalOpen(true);
   };
@@ -135,7 +135,7 @@ const OrderPage = () => {
         // Tambahkan newItem ke state lokal untuk pembaruan tampilan
         setOrderData([...orderData, formState]);
       }
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error adding item to inventory:", error.message);
     }
     setRowToEdit(null);

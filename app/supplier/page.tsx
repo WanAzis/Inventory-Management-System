@@ -28,7 +28,7 @@ const SupplierPage = () => {
         }
 
         setSupplierData(data);
-      } catch (error) {
+      } catch (error:any) {
         console.error("Error fetching Supplier data:", error.message);
       }
     };
@@ -36,7 +36,7 @@ const SupplierPage = () => {
     fetchSupplierData();
   }, []);
 
-  const handleDeleteRow = async (key) => {
+  const handleDeleteRow = async (key:any) => {
     // setRows(rows.filter((_, idx) => idx !== targetIndex));
     try {
       // Mendapatkan ID item yang ingin dihapus dari state atau data yang tersimpan
@@ -59,12 +59,12 @@ const SupplierPage = () => {
 
       // Jika berhasil, perbarui state atau data yang digunakan untuk menampilkan tabel
       // setInventoryData([...inventoryData, data]);
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error deleting item:", error.message);
     }
   };
 
-  const handleEditRow = (key) => {
+  const handleEditRow = (key:any) => {
     setRowToEdit(key);
 
     setModalOpen(true);
@@ -112,7 +112,7 @@ const SupplierPage = () => {
         // Tambahkan newItem ke state lokal untuk pembaruan tampilan
         setSupplierData([...supplierData, formState]);
       }
-    } catch (error) {
+    } catch (error:any) {
       console.error("Error adding item to supplier:", error.message);
     }
     setRowToEdit(null);

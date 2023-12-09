@@ -72,7 +72,7 @@ const TableSupplier: React.FC<TableThreeProps> = ({
                   <span className="flex hover:cursor-pointer justify-around">
                     <BsFillTrashFill
                       className="text-danger"
-                      onClick={() => deleteRow(key)}
+                      onClick={() => deleteRow(String(key))}
                     />
                     <BsFillPencilFill onClick={() => editRow(key)} />
                   </span>
