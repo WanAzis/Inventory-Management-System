@@ -18,7 +18,7 @@
 ```
 3. Setelah proses instalasi selesai, jalankan perintah berikut untuk memulai server
 ```
-npm run dev
+    npm run dev
 ```
 4. lalu buka [http://localhost:3000/](http://localhost:3000/) di browser kalian untuk mengakses aplikasi
 
@@ -83,4 +83,4 @@ npm run dev
 - Anda dapat menambah data supplier baru dengan memencet tombol **Add Item**
 
 ## Link Deployment
-[Klik disini](https://farm-stash-inventory.vercel.app/)
+[farm-stash-inventory](https://farm-stash-inventory.vercel.app/)
