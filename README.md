@@ -13,20 +13,30 @@
 ```
 npm run dev
 ```
-3. Salin link yang tertera di terminal dan tempel ke web browser anda (**localhost:3000**)
+3. Salin link yang tertera di terminal dan tempel ke web browser anda `**localhost:3000**`
 4. Website/Laman akan terbuka
 
 ## Panduan Fitur - Inventory
-- Name
-    Nama item yang tersedia
-- Location
-    Lokasi item yang disimpan
-- Quantity
-    Jumlah item yang disimpan
-- Status
-    Status item
-- Expiry Date
-    Tanggal kadaluarsa item
+**Name**
+>Nama item yang tersedia
+
+**Location**
+>Lokasi item yang disimpan
+
+**Quantity**
+>Jumlah item yang disimpan
+
+**Status**
+>Status item
+
+**Expiry Date**
+>Tanggal kadaluarsa item
+
+Anda dapat merubah data item dengan memencet tombol 'Edit'(Tombol Pena)
+
+Anda dapat menghapus data item dengan memencet tombol 'Delete'(Tombol Tempat Sampah)
+
+Anda dapat menambah data item baru dengan memencet tombol 'Add Item'
 ## Panduan Fitur - Order
 
 ## Panduan Fitur - Supplier
