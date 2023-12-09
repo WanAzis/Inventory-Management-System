@@ -42,11 +42,11 @@ export const Modal: React.FC<ModalProps> = ({
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
 
     if (!validateForm()) return;
@@ -59,7 +59,7 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <div
       className="modal-container"
-      onClick={(e) => {
+      onClick={(e:any) => {
         if (e.target.className === "modal-container") closeModal();
       }}
     >
