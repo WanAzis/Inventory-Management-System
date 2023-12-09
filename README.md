@@ -17,16 +17,22 @@ npm run dev
 4. Website/Laman akan terbuka
 
 ## Panduan Fitur - Inventory
-- Name
-    Nama item yang tersedia
-- Location
-    Lokasi item yang disimpan
-- Quantity
-    Jumlah item yang disimpan
-- Status
-    Status item
-- Expiry Date
-    Tanggal kadaluarsa item
+**Name**
+>Nama item yang tersedia
+
+**Location**
+>Lokasi item yang disimpan
+
+**Quantity**
+>Jumlah item yang disimpan
+
+**Status**
+>Status item
+
+**Expiry Date**
+>Tanggal kadaluarsa item
+
+
 ## Panduan Fitur - Order
 
 ## Panduan Fitur - Supplier
