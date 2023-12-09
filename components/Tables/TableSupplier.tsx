@@ -3,106 +3,6 @@ import { Package } from "@/types/package";
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
-
-// const packageData: Package[] = [
-//   {
-//     name: "Free package",
-//     price: 0.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Paid",
-//   },
-//   {
-//     name: "Standard Package",
-//     price: 59.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Paid",
-//   },
-//   {
-//     name: "Business Package",
-//     price: 99.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Unpaid",
-//   },
-//   {
-//     name: "Standard Package",
-//     price: 59.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Pending",
-//   },
-//   {
-//     name: "Free package",
-//     price: 0.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Paid",
-//   },
-//   {
-//     name: "Standard Package",
-//     price: 59.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Paid",
-//   },
-//   {
-//     name: "Business Package",
-//     price: 99.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Unpaid",
-//   },
-//   {
-//     name: "Standard Package",
-//     price: 59.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Pending",
-//   },
-//   {
-//     name: "Free package",
-//     price: 0.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Paid",
-//   },
-//   {
-//     name: "Standard Package",
-//     price: 59.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Paid",
-//   },
-//   {
-//     name: "Business Package",
-//     price: 99.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Unpaid",
-//   },
-//   {
-//     name: "Standard Package",
-//     price: 59.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Pending",
-//   },
-//   {
-//     name: "Free package",
-//     price: 0.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Paid",
-//   },
-//   {
-//     name: "Standard Package",
-//     price: 59.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Paid",
-//   },
-//   {
-//     name: "Business Package",
-//     price: 99.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Unpaid",
-//   },
-//   {
-//     name: "Standard Package",
-//     price: 59.0,
-//     invoiceDate: `Jan 13,2023`,
-//     status: "Pending",
-//   },
-// ];
-
 interface TableThreeProps {
   rows: any[]; // replace any with the actual type
   deleteRow: (rowId: string) => void; // replace parameters and return type with actual ones
@@ -121,11 +21,11 @@ const TableSupplier: React.FC<TableThreeProps> = ({
       <div className="max-w-full overflow-x-auto">
         <div className="flex justify-between">
           <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-            Inventory List
+            Supplier List
           </h4>
           <button
             onClick={openModal}
-            className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-meta-3 py-4 px-5 text-center font-medium text-white hover:bg-opacity-90 lg:px-5 xl:px-7"
+            className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-meta-3 py-4 px-5 text-center font-medium text-white hover:bg-opacity-90 lg:px-5 xl:px-7 h-10"
           >
             Add Item
           </button>
@@ -143,18 +43,11 @@ const TableSupplier: React.FC<TableThreeProps> = ({
                 Location
               </th>
               <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
-                Quantity
+                Phone Number
               </th>
-              <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
-                Minimum Quantity
+              <th className="min-w-[35px] py-4 px-4 font-medium text-black dark:text-white">
+                
               </th>
-              <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                Status
-              </th>
-              <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                Expiry Date
-              </th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white"></th>
             </tr>
           </thead>
           <tbody>
@@ -170,28 +63,9 @@ const TableSupplier: React.FC<TableThreeProps> = ({
                   <p className="text-black dark:text-white">{row.location}</p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{row.quantity}</p>
-                </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p className="text-black dark:text-white">
-                    {row.minQuantity}
+                    {row.phone_number}
                   </p>
-                </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p
-                    className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${
-                      row.status === "Available"
-                        ? "text-success bg-success"
-                        : row.status === "Unavailable"
-                          ? "text-danger bg-danger"
-                          : "text-warning bg-warning"
-                    }`}
-                  >
-                    {row.status}
-                  </p>
-                </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{row.expDate}</p>
                 </td>
 
                 <td>

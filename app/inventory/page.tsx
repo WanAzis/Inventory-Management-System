@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import { Modal } from "@/components/Modal/Modal";
+import { Modal } from "@/components/Modal/ModalInventory";
 import supabase from "@/supabase";
 import TableInventory from "@/components/Tables/TableInventory";
 

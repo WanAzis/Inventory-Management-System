@@ -2,8 +2,6 @@
 import { Package } from "@/types/package";
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
-// import {Modal} from "@/components/Modal/Modal";
-
 
 interface TableThreeProps {
   rows: any[]; // replace any with the actual type
@@ -12,7 +10,7 @@ interface TableThreeProps {
   openModal: any;
 }
 
-const TableInventory: React.FC<TableThreeProps> = ({
+const TableOrder: React.FC<TableThreeProps> = ({
   rows,
   deleteRow,
   editRow,
@@ -23,7 +21,7 @@ const TableInventory: React.FC<TableThreeProps> = ({
       <div className="max-w-full overflow-x-auto">
         <div className="flex justify-between">
           <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-            Inventory List
+            Order List
           </h4>
           <button
             onClick={openModal}
@@ -39,22 +37,25 @@ const TableInventory: React.FC<TableThreeProps> = ({
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
               <th className="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                Name
+                Stock
               </th>
               <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
-                Location
+                Supplier
               </th>
               <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
+                Order Date
+              </th>
+              <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
+                Arrival Date
+              </th>
+              <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
+                Order Status
+              </th>
+              <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
                 Quantity
               </th>
-              <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white">
-                Minimum Quantity
-              </th>
               <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                Status
-              </th>
-              <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                Expiry Date
+                Total Price
               </th>
               <th className="py-4 px-4 font-medium text-black dark:text-white"></th>
             </tr>
@@ -64,36 +65,37 @@ const TableInventory: React.FC<TableThreeProps> = ({
               <tr key={key} className="hover:bg-gray dark:hover:bg-meta-4">
                 <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                   <h5 className="font-medium text-black dark:text-white">
-                    {row.name}
+                    {row.stockName}
                   </h5>
                   {/* <p className="text-sm">{row.location}</p> */}
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{row.location}</p>
+                  <p className="text-black dark:text-white">{row.supplier}</p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{row.quantity}</p>
+                  <p className="text-black dark:text-white">{row.orderDate}</p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p className="text-black dark:text-white">
-                    {row.minQuantity}
+                    {row.arrivalDate}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p
                     className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${
-                      row.status === "Available"
-                        ? "text-success bg-success"
-                        : row.status === "Unavailable"
-                          ? "text-danger bg-danger"
-                          : "text-warning bg-warning"
+                      row.orderStatus === "Ongoing"
+                        ? "text-warning bg-warning"
+                        : "text-success bg-success"
                     }`}
                   >
-                    {row.status}
+                    {row.orderStatus}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p className="text-black dark:text-white">{row.expDate}</p>
+                  <p className="text-black dark:text-white">{row.quantity}</p>
+                </td>
+                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                  <p className="text-black dark:text-white">{row.totalPrice}</p>
                 </td>
 
                 <td>
@@ -114,4 +116,4 @@ const TableInventory: React.FC<TableThreeProps> = ({
   );
 };
 
-export default TableInventory;
+export default TableOrder;
