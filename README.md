@@ -13,6 +13,20 @@
 ```
 npm run dev
 ```
-3. Salin link yang tertera di terminal dan tempel ke web browser anda
+3. Salin link yang tertera di terminal dan tempel ke web browser anda (**localhost:3000**)
 4. Website/Laman akan terbuka
 
+## Panduan Fitur - Inventory
+- Name
+    Nama item yang tersedia
+- Location
+    Lokasi item yang disimpan
+- Quantity
+    Jumlah item yang disimpan
+- Status
+    Status item
+- Expiry Date
+    Tanggal kadaluarsa item
+## Panduan Fitur - Order
+
+## Panduan Fitur - Supplier
