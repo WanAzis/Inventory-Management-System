@@ -96,5 +96,11 @@ If you like the template, please star this repository to inspire the team to cre
 - 18221028
 
 ### Panduan Penggunaan
-
+1. Buka terminal pada IDE anda
+2. Ketik command di bawah ini
+```
+npm run dev
+```
+3. Salin link yang tertera di terminal dan tempel ke web browser anda
+4. Website/Laman akan terbuka
 
